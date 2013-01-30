@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="07ed789a-9276-400c-84b5-383045377f24" last-modified="2012-12-02T23:05:17" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>Gh0st RAT from Jackcr Challange</short_description>
+  <description>IOC to detect presence of Gh0st RAT used in @jackcr Forensic Challange November 2012.</description>
+  <authored_by>Bryan Nolen @BryanNolen</authored_by>
+  <authored_date>2012-12-02T05:08:51</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="56ad8185-fb7c-476e-ab5e-48f97e14e412">
+      <Indicator operator="AND" id="3212b372-0a4a-497f-81d5-1eee253624a5">
+        <IndicatorItem id="d9cf2752-24fa-478f-956c-29ed8fdee690" condition="is">
+          <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+          <Content type="IP">58.64.132.141</Content>
+        </IndicatorItem>
+        <IndicatorItem id="f1951826-e6c9-4c47-a3c6-7e61fcac4f66" condition="is">
+          <Context document="PortItem" search="PortItem/remotePort" type="mir" />
+          <Content type="string">80</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="OR" id="26257351-0598-4e20-a5e9-c6a102b138a2">
+        <IndicatorItem id="5203006a-abf2-4cac-a06e-0a70894f67c7" condition="contains">
+          <Context document="ModuleItem" search="ModuleItem/ModuleName" type="mir" />
+          <Content type="string">6to4ex.dll</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="OR" id="8d2f5ac5-3059-4e81-b3c0-01b408b8bbbe">
+        <IndicatorItem id="6a5a3452-232c-4a19-84f5-35cdae8d4752" condition="contains">
+          <Context document="UrlHistoryItem" search="UrlHistoryItem/URL" type="mir" />
+          <Content type="string">http://58.64.132.8/download/Symantec-1.43-1.exe</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="OR" id="4bb63f12-a93c-4378-adb9-e458ce1a031a">
+        <Indicator operator="OR" id="a6b473a4-81d6-4583-99cf-e4700f2d9f78">
+          <IndicatorItem id="66200819-d061-4312-9b52-96f92aca0d58" condition="contains">
+            <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+            <Content type="string">Gh0st</Content>
+          </IndicatorItem>
+          <IndicatorItem id="9fc46eec-789e-4b7b-bcee-bd6dc1d7d511" condition="contains">
+            <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+            <Content type="string">gh0st</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+      <Indicator operator="OR" id="3081a1c7-6804-48e1-8266-34b458d7f73e">
+        <IndicatorItem id="377a5d22-a72d-47b5-bb97-744496511dc2" condition="is">
+          <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+          <Content type="md5">156f2c6a65a1eab1c03e1dc7f215a044</Content>
+        </IndicatorItem>
+        <IndicatorItem id="376d05d1-a2b9-40cb-b342-7fdba3109609" condition="contains">
+          <Context document="FileItem" search="FileItem/Sha256sum" type="mir" />
+          <Content type="string">29f63761610079940e43abd1d7c9c50ab678fef1da43c4c961069bbb8f7d0628</Content>
+        </IndicatorItem>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
